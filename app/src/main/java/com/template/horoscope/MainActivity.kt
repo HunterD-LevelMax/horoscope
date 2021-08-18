@@ -82,9 +82,6 @@ class MainActivity : AppCompatActivity() {
             putString("BIRTHDAY", user?.dateBirthday.toString())
             putString("AGE", user?.age.toString())
             showToast(user?.dateBirthday.toString())
-
         }.apply()
     }
-
-
 }
