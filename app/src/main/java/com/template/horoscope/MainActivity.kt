@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
             ).toString()
             zodiacTV.text = getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1))
             nameYearTV.text = ChineseZodiac(datePicker.year)
+            namePlanetTV.text = getPlanet(getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1)))
+            nameElementTV.text = getElement(getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1)))
 
             //пользователь с данными
             user = User(
@@ -51,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                 getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1)),
                 ChineseZodiac(datePicker.year),
                 getElement(getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1))),
+                getPlanet(getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1))),
                 getAge(
                     getBirthdayDate(
                         datePicker.year,
@@ -61,7 +64,6 @@ class MainActivity : AppCompatActivity() {
             )
             saveData(user!!)
         }
-
     }
 
     private fun saveData(user: User) {
@@ -71,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         editor.apply {
             putString("ZODIAC", user?.zodiacSign)
             putString("ELEMENT", user?.element)
+            putString("PLANET", user?.planet)
             putString("NAME_YEAR", user?.nameYear)
             putString("BIRTHDAY", user?.dateBirthday.toString())
             putString("AGE", user?.age.toString())

@@ -72,6 +72,18 @@
             android:layout_height="wrap_content"
             android:text="Год животного"
             android:textSize="20sp" />
+        <TextView
+            android:id="@+id/namePlanetTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Планета"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/nameElementTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Элемент"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
