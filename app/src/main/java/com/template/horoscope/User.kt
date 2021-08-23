@@ -3,7 +3,7 @@ package com.template.horoscope
 import java.time.LocalDate
 
 data class User(
-    var dateBirthday: LocalDate,
+    var birthdayDate: LocalDate,
     var zodiacSign: String,
     var element: String,
     var planet:String,

@@ -19,7 +19,7 @@ class HoroscopeActivity : AppCompatActivity() {
         loadData()
         showToast("Загружены данные о пользователе с локального хранилища")
         dateTVH.text =
-            user.dateBirthday.format(DateTimeFormatter.ofPattern("dd MMMM yyyy")).toString()
+            user.birthdayDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy")).toString()
         ageTVH.text = user.age.toString()
         zodiacTVH.text = user.zodiacSign
         nameYearTVH.text = user.nameYear

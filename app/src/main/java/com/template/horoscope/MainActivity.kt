@@ -75,9 +75,9 @@ class MainActivity : AppCompatActivity() {
             putString("ELEMENT", user?.element)
             putString("PLANET", user?.planet)
             putString("NAME_YEAR", user?.nameYear)
-            putString("BIRTHDAY", user?.dateBirthday.toString())
+            putString("BIRTHDAY", user?.birthdayDate.toString())
             putString("AGE", user?.age.toString())
-            showToast(user?.dateBirthday.toString())
+            showToast(user?.birthdayDate.toString())
         }.apply()
     }
 }
