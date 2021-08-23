@@ -23,6 +23,43 @@ fun getZodiac(day: Int, month: Int): String {
     }
 }
 
+fun getElement(zodiac: String): String {
+    return when (zodiac) {
+        "Водолей" -> "Вода"
+        "Рыбы" -> "Вода"
+        "Скорпион" -> "Вода"
+        "Рак" -> "Вода"
+        "Телец" -> "Земля"
+        "Дева" -> "Земля"
+        "Козерог" -> "Земля"
+        "Стрелец" -> "Огонь"
+        "Овен" -> "Огонь"
+        "Лев" -> "Огонь"
+        "Весы" -> "Воздух"
+        "Близнецы" -> "Воздух"
+        else -> "Error"
+    }
+}
+
+fun getPlanet(zodiac: String): String {
+    return when (zodiac) {
+        "Водолей" -> "Уран"
+        "Рыбы" -> "Нептун"
+        "Скорпион" -> "Плутон"
+        "Рак" -> "Луна"
+        "Телец" -> "Венера"
+        "Дева" -> "Меркурий"
+        "Козерог" -> "Сатурн"
+        "Стрелец" -> "Юпитер"
+        "Овен" -> "Марс"
+        "Лев" -> "Солнце"
+        "Весы" -> "Венера"
+        "Близнецы" -> "Меркурий"
+        else -> "Error"
+    }
+}
+
+
 //для более точного определения нужно учитывать еще месяц и день (Китайский новый год начинается с февраля)
 fun ChineseZodiac(year: Int): String {
     return when (year % 12) {
@@ -43,7 +80,7 @@ fun ChineseZodiac(year: Int): String {
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
-fun getBirthdayDate(year:Int, month:Int, day:Int): LocalDate {
+fun getBirthdayDate(year: Int, month: Int, day: Int): LocalDate {
     return LocalDate.of(year, month, day)
 
 }
