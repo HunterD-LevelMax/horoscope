@@ -1,7 +1,5 @@
 package com.template.horoscope
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import java.time.LocalDate
 import java.time.Period
 
@@ -19,6 +17,24 @@ fun getZodiac(day: Int, month: Int): String {
         10 -> if (day >= 23) "Скорпион" else "Весы"
         11 -> if (day >= 22) "Стрелец" else "Скорпион"
         12 -> if (day >= 22) "Козерог" else "Стрелец"
+        else -> "error"
+    }
+}
+
+fun getZodiacEn(zodiac: String): String {
+    return when (zodiac) {
+        "Овен" -> "Aries"
+        "Телец" -> "Taurus"
+        "Близнецы" -> "Gemini"
+        "Рак" -> "Cancer"
+        "Лев" -> "Leo"
+        "Дева" -> "Virgo"
+        "Весы" -> "Libra"
+        "Скорпион" -> "Scorpio"
+        "Стрелец" -> "Sagittarius"
+        "Козерог" -> "Capricorn"
+        "Водолей" -> "Aquarius"
+        "Рыбы" -> "Pisces"
         else -> "error"
     }
 }
@@ -61,7 +77,7 @@ fun getPlanet(zodiac: String): String {
 
 
 //для более точного определения нужно учитывать еще месяц и день (Китайский новый год начинается с февраля)
-fun ChineseZodiac(year: Int): String {
+fun chineseZodiac(year: Int): String {
     return when (year % 12) {
         0 -> "Год обезьяны"
         1 -> "Год петуха"
@@ -79,13 +95,12 @@ fun ChineseZodiac(year: Int): String {
     }
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
+
 fun getBirthdayDate(year: Int, month: Int, day: Int): LocalDate {
     return LocalDate.of(year, month, day)
-
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
+
 fun getAge(birthday: LocalDate): Int {
     return Period.between(
         birthday,

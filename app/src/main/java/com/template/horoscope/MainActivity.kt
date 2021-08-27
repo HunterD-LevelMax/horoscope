@@ -2,18 +2,17 @@ package com.template.horoscope
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.time.Month
+
 import java.time.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity() {
-    @RequiresApi(Build.VERSION_CODES.O)
+
     var user: User? = null
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,43 +23,27 @@ class MainActivity : AppCompatActivity() {
                 showToast("Выберите свою дату рождения")
             else replaceActivity(HoroscopeActivity())
         }
-
         button.setOnClickListener {
-            dateTV.text = getBirthdayDate(
-                datePicker.year,
-                datePicker.month.plus(1),
-                datePicker.dayOfMonth
-            ).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"))
-            ageTV.text = getAge(
-                getBirthdayDate(
-                    datePicker.year,
-                    datePicker.month.plus(1),
-                    datePicker.dayOfMonth
-                )
-            ).toString()
-            zodiacTV.text = getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1))
-            nameYearTV.text = ChineseZodiac(datePicker.year)
-            namePlanetTV.text = getPlanet(getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1)))
-            nameElementTV.text = getElement(getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1)))
+            var day = datePicker.dayOfMonth
+            var month = datePicker.month.plus(1)
+            var year = datePicker.year
+
+            dateTV.text = getBirthdayDate(year, month, day).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"))
+            zodiacTV.text = getZodiac(day, month)
+            nameElementTV.text = getElement(getZodiac(day, month))
+            namePlanetTV.text = getPlanet(getZodiac(day, month))
+            nameYearTV.text = chineseZodiac(year)
+            ageTV.text = getAge(getBirthdayDate(year, month, day)).toString()
+
 
             //пользователь с данными
             user = User(
-                getBirthdayDate(
-                    datePicker.year,
-                    datePicker.month.plus(1),
-                    datePicker.dayOfMonth
-                ),
-                getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1)),
-                ChineseZodiac(datePicker.year),
-                getElement(getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1))),
-                getPlanet(getZodiac(datePicker.dayOfMonth, datePicker.month.plus(1))),
-                getAge(
-                    getBirthdayDate(
-                        datePicker.year,
-                        datePicker.month.plus(1),
-                        datePicker.dayOfMonth
-                    )
-                )
+                getBirthdayDate(year, month, day),
+                getZodiac(day, month),
+                chineseZodiac(year),
+                getElement(getZodiac(day, month)),
+                getPlanet(getZodiac(day, month)),
+                getAge(getBirthdayDate(year, month, day))
             )
             saveData(user!!)
         }

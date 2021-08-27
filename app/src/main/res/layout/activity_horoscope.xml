@@ -7,18 +7,15 @@
     tools:context=".HoroscopeActivity">
 
     <ImageView
-        android:id="@+id/zodiacIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/zodiac_icon"
+        android:layout_width="293dp"
+        android:layout_height="240dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#E3E0E0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:background="@color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/capricorn" />
 
     <LinearLayout
         android:id="@+id/userDataBlockH"
@@ -32,7 +29,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zodiacIcon">
+        app:layout_constraintTop_toBottomOf="@+id/zodiac_icon">
+
+        <TextView
+            android:id="@+id/zodiacTVH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Знак зодиака"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/dateTVH"
@@ -46,13 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Возраст"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/zodiacTVH"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Знак зодиака"
             android:textSize="20sp" />
 
         <TextView

@@ -12,7 +12,6 @@ import java.time.format.DateTimeFormatter
 class HoroscopeActivity : AppCompatActivity() {
     lateinit var user: User
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_horoscope)
@@ -25,9 +24,12 @@ class HoroscopeActivity : AppCompatActivity() {
         nameYearTVH.text = user.nameYear
         nameElementTVH.text = user.element
         namePlanetTVH.text = user.planet
+
+
+        zodiac_icon.setImageResource(R.drawable.gemini)
+
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun loadData() {
         var dateBirthday: LocalDate
         var zodiacSign: String

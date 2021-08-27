@@ -21,7 +21,7 @@ fun getTimeZoneId(): String {
 }
 
 fun Activity.showToast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    Toast.makeText(this,message, Toast.LENGTH_SHORT).show()
 }
 
 fun AppCompatActivity.replaceActivity(activity: AppCompatActivity) {
@@ -30,9 +30,9 @@ fun AppCompatActivity.replaceActivity(activity: AppCompatActivity) {
     //this.finish()
 }
 
-//проверка наличия интернета
+//check Network in OS
 @RequiresApi(Build.VERSION_CODES.M)
-fun isOnline(context: Context): Boolean {
+fun checkNetwork(context: Context): Boolean {
     val connectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val capabilities =
