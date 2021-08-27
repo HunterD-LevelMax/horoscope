@@ -25,18 +25,18 @@ fun getZodiac(day: Int, month: Int): String {
 
 fun getZodiacEn(zodiac: String): String {
     return when (zodiac) {
-        "Овен" -> "Aries"
-        "Телец" -> "Taurus"
-        "Близнецы" -> "Gemini"
-        "Рак" -> "Cancer"
-        "Лев" -> "Leo"
-        "Дева" -> "Virgo"
-        "Весы" -> "Libra"
-        "Скорпион" -> "Scorpio"
-        "Стрелец" -> "Sagittarius"
-        "Козерог" -> "Capricorn"
-        "Водолей" -> "Aquarius"
-        "Рыбы" -> "Pisces"
+        "Овен" -> "aries"
+        "Телец" -> "taurus"
+        "Близнецы" -> "gemini"
+        "Рак" -> "cancer"
+        "Лев" -> "leo"
+        "Дева" -> "virgo"
+        "Весы" -> "libra"
+        "Скорпион" -> "scorpio"
+        "Стрелец" -> "sagittarius"
+        "Козерог" -> "capricorn"
+        "Водолей" -> "aquarius"
+        "Рыбы" -> "pisces"
         else -> "error"
     }
 }

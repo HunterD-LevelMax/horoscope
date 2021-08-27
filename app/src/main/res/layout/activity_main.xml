@@ -12,38 +12,38 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/teal_200"
         android:text="ok"
+        app:layout_constraintBottom_toTopOf="@+id/userDataBlock"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/userDataBlock"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/fabNext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/dateTV"
@@ -72,12 +72,14 @@
             android:layout_height="wrap_content"
             android:text="Год животного"
             android:textSize="20sp" />
+
         <TextView
             android:id="@+id/namePlanetTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Планета"
             android:textSize="20sp" />
+
         <TextView
             android:id="@+id/nameElementTV"
             android:layout_width="match_parent"
