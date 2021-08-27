@@ -1,10 +1,8 @@
 package com.template.horoscope
 
 import android.content.Context
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_horoscope.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -25,47 +23,58 @@ class HoroscopeActivity : AppCompatActivity() {
         nameElementTVH.text = user.element
         namePlanetTVH.text = user.planet
 
+        setImageHoroscope(user.zodiacSign)
 
-        zodiac_icon.setImageResource(R.drawable.gemini)
 
     }
 
-    private fun loadData() {
-        var dateBirthday: LocalDate
-        var zodiacSign: String
-        var nameElement: String
-        var namePlanet: String
-        var nameYear: String
-        var age: Int
+    fun setImageHoroscope(horoscopeSigns: String) {
+        when (horoscopeSigns) {
+            "Овен" ->  zodiac_icon.setImageResource(R.drawable.aries)
+            "Телец" -> zodiac_icon.setImageResource(R.drawable.taurus)
+            "Близнецы" -> zodiac_icon.setImageResource(R.drawable.gemini)
+            "Рак" ->  zodiac_icon.setImageResource(R.drawable.cancer)
+            "Лев" ->  zodiac_icon.setImageResource(R.drawable.leo)
+            "Дева" -> zodiac_icon.setImageResource(R.drawable.virgo)
+            "Весы" -> zodiac_icon.setImageResource(R.drawable.libra)
+            "Скорпион" -> zodiac_icon.setImageResource(R.drawable.scorpio)
+            "Стрелец" -> zodiac_icon.setImageResource(R.drawable.sagittarius)
+            "Козерог" -> zodiac_icon.setImageResource(R.drawable.capricorn)
+            "Водолей" -> zodiac_icon.setImageResource(R.drawable.aquarius)
+            "Рыбы" -> zodiac_icon.setImageResource(R.drawable.pisces)
+        }
+    }
 
-        dateBirthday = LocalDate.parse(
+    fun loadData() {
+
+        var dateBirthday = LocalDate.parse(
             getSharedPreferences(
                 "PREFERENCE",
                 Context.MODE_PRIVATE
             ).getString("BIRTHDAY", null)
         )
 
-        zodiacSign = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+        var zodiacSign = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
             .getString("ZODIAC", null)
             .toString()
 
-        nameYear = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+        var nameYear = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
             .getString("NAME_YEAR", null)
             .toString()
 
-        age = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+        var age = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
             .getString("AGE", null)?.toInt()!!
 
-        nameElement = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+        var nameElement = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
             .getString("ELEMENT", null)
             .toString()
 
-        namePlanet= getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+        var namePlanet = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
             .getString("PLANET", null)
             .toString()
 
-        user = User(dateBirthday, zodiacSign, nameElement, namePlanet,  nameYear, age)
-
-
+        user = User(dateBirthday, zodiacSign, nameElement, namePlanet, nameYear, age)
     }
+
+
 }
