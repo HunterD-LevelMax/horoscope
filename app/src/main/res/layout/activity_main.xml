@@ -6,29 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <DatePicker
-        android:id="@+id/datePicker"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/teal_200"
-        android:text="ok"
-        app:layout_constraintBottom_toTopOf="@+id/userDataBlock"
+        android:lineSpacingExtra="8sp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="Укажите дату своего рождения. Это нужно для составленных твоих особых гороскопов."
+        android:textAlignment="center"
+        android:textColor="@color/base"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-light"
+        app:layout_constraintBottom_toTopOf="@+id/datePicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -36,14 +28,11 @@
         android:id="@+id/userDataBlock"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/fabNext"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/dateTV"
@@ -88,18 +77,64 @@
             android:textSize="20sp" />
     </LinearLayout>
 
+    <DatePicker
+        android:id="@+id/datePicker"
+        style="@style/DatePicker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:dayOfWeekTextAppearance="@style/TextAppearance.AppCompat.Large"
+        android:headerBackground="@color/blue"
+        android:headerDayOfMonthTextAppearance="@style/TextAppearance.AppCompat.Large"
+        android:headerMonthTextAppearance="@style/TextAppearance.AppCompat.Large"
+        android:headerYearTextAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/teal_200"
+        android:backgroundTint="#0066cc"
         android:clickable="true"
         app:borderWidth="0dp"
         app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="25dp"
+        app:rippleColor="@color/base"
         app:srcCompat="@drawable/ic_navigate_next_50dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="147dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#0066cc"
+        android:text="Далее"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datePicker"
+        app:rippleColor="@color/base" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="пропустить"
+        android:textColor="#32070707"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabNext" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

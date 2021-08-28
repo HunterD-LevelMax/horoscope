@@ -2,15 +2,18 @@
     <!-- Base application theme. -->
     <style name="Theme.Horoscope" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">#415780</item>
+        <item name="colorOnPrimary">#0066cc</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/white</item>      <!-- цвет иконок на кнопках -->
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/teal_700</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/surface</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="DatePicker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textSize">30sp</item>
     </style>
 </resources>

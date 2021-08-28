@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.time.LocalDate
 
 import java.time.format.DateTimeFormatter
 
@@ -16,23 +17,38 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        var dateBirthday = LocalDate.parse(
+            getSharedPreferences(
+                "PREFERENCE",
+                Context.MODE_PRIVATE
+            ).getString("BIRTHDAY", null)
+        ).toString()
+
+        if (dateBirthday!=null){
+            replaceActivity(HoroscopeActivity())
+        }
+
         // переход к окну с гороскопом
         fabNext.setOnClickListener {
-            if (user == null || user?.age!! <= 0)
+            if (user == null || user?.age!! <= 0) showToast("Выберите свою дату рождения")
             else startHoroscope()
-                 replaceActivity(HoroscopeActivity())
+            replaceActivity(HoroscopeActivity())
         }
+
         button.setOnClickListener {
             startHoroscope()
+            replaceActivity(HoroscopeActivity())
         }
     }
 
-    fun startHoroscope(){
+    fun startHoroscope() {
         var day = datePicker.dayOfMonth
         var month = datePicker.month.plus(1)
         var year = datePicker.year
 
-        dateTV.text = getBirthdayDate(year, month, day).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"))
+        dateTV.text =
+            getBirthdayDate(year, month, day).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"))
         zodiacTV.text = getZodiac(day, month)
         nameElementTV.text = getElement(getZodiac(day, month))
         namePlanetTV.text = getPlanet(getZodiac(day, month))

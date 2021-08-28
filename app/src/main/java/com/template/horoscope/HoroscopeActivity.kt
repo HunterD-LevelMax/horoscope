@@ -3,9 +3,7 @@ package com.template.horoscope
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_horoscope.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -25,45 +23,80 @@ class HoroscopeActivity : AppCompatActivity() {
         showToast("Загружены данные о пользователе с локального хранилища")
         dateTVH.text =
             user.birthdayDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy")).toString()
-        ageTVH.text = user.age.toString()
+        ageTVH.text = "Мне " + user.age.toString()
         zodiacTVH.text = user.zodiacSign
         nameYearTVH.text = user.nameYear
         nameElementTVH.text = user.element
         namePlanetTVH.text = user.planet
         setImageHoroscope(user.zodiacSign)
-
-        thread { requestServer() }
-        progressBar.visibility = View.VISIBLE
+        requestServer()
     }
 
     private fun requestServer() {
-        var url =
-            "https://horoscopes.rambler.ru/api/front/v1/horoscope/today/${getZodiacEn(user.zodiacSign)}/"
+        thread {
+            val url = "https://horoscopes.rambler.ru/api/front/v1/horoscope/today/${getZodiacEn(user.zodiacSign)}/"
+            val urlAll = "https://horoscopes.rambler.ru/api/front/v1/horoscope/today"
 
-        val request = Request.Builder()
-            .url(url)
-            .addHeader("User-Agent", System.getProperty("http.agent").toString())
-            .build()
+            val request = Request.Builder()
+                .url(url)
+                .addHeader("User-Agent", System.getProperty("http.agent").toString())
+                .build()
+            val requestAll = Request.Builder()
+                .url(urlAll)
+                .addHeader("User-Agent", System.getProperty("http.agent").toString())
+                .build()
 
-        val client = OkHttpClient()
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-            }
 
-            override fun onResponse(call: Call, response: Response) {
-                val json = response.body?.string()
-
-                var filtered = "<p>h12/"
-
-                todayHoroscope = (JSONObject(json).get("text")).toString().filterNot { filtered.indexOf(it) > -1 }
-
-                runOnUiThread() {
-                    progressBar.visibility = View.INVISIBLE
-
-                    newHoroscopeTV.text = todayHoroscope
+            val client = OkHttpClient()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    showToast("Ошибка 404")
                 }
-            }
-        })
+
+                override fun onResponse(call: Call, response: Response) {
+                    val json = response.body?.string()
+
+                    var filtered = "<p>h12/"
+
+                    todayHoroscope = (JSONObject(json).get("text")).toString()
+                        .filterNot { filtered.indexOf(it) > -1 }
+
+                    runOnUiThread() {
+                        progressBar.visibility = View.INVISIBLE
+
+                        newHoroscopeTV.text = todayHoroscope
+                    }
+                }
+            })
+
+            val clientAll = OkHttpClient()
+            clientAll.newCall(requestAll).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    showToast("Ошибка 404")
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val json = response.body?.string()
+
+                    var filtered = "</a><p><ahref=\\\"/moon/calendar/\\\">"
+
+                    todayHoroscope = (JSONObject(json).get("text")).toString()
+                        .filterNot { filtered.indexOf(it) > -1 }
+
+                    runOnUiThread() {
+                        progressBar.visibility = View.INVISIBLE
+
+                        newHoroscopeTV2.text = todayHoroscope
+                    }
+                }
+            })
+
+
+
+
+
+
+        }
     }
 
     fun setImageHoroscope(horoscopeSigns: String) {

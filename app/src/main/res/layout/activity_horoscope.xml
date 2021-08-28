@@ -6,99 +6,124 @@
     android:layout_height="match_parent"
     tools:context=".HoroscopeActivity">
 
-    <ImageView
-        android:id="@+id/zodiac_icon"
-        android:layout_width="293dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/transparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/capricorn" />
-
-    <LinearLayout
-        android:id="@+id/userDataBlockH"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="vertical"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zodiac_icon">
-
-        <TextView
-            android:id="@+id/zodiacTVH"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Знак зодиака"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/dateTVH"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Дата рождения"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/ageTVH"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Возраст"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/nameYearTVH"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Год животного"
-            android:textSize="20sp" />
-
-
-        <TextView
-            android:id="@+id/namePlanetTVH"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Планета"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/nameElementTVH"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Элемент"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/newHoroscopeTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:padding="16dp"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userDataBlockH" />
-
     <ProgressBar
         android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
+        style="@android:style/Widget.Holo.ProgressBar.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userDataBlockH" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="0dp"
+        android:padding="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/zodiac_icon"
+                android:layout_width="247dp"
+                android:layout_height="163dp"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                app:srcCompat="@drawable/capricorn" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/zodiacTVH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Козерог"
+                    android:textAlignment="center"
+                    android:textColor="@color/base"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/dateTVH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11 января 1998"
+                    android:textAlignment="center"
+                    android:textColor="@color/base"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ageTVH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Возраст"
+                    android:textAlignment="center"
+                    android:textColor="@color/base"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/nameYearTVH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Год животного"
+                    android:textAlignment="center"
+                    android:textColor="@color/base"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/namePlanetTVH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Планета"
+                    android:textAlignment="center"
+                    android:textColor="@color/base"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/nameElementTVH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Элемент"
+                    android:textAlignment="center"
+                    android:textColor="@color/base"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/newHoroscopeTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-light"
+                android:padding="16dp"
+                android:text="Мой гороскоп"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/newHoroscopeTV2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-light"
+                android:padding="16dp"
+                android:text="Общий"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
