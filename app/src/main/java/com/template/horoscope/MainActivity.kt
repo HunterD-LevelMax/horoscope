@@ -32,9 +32,9 @@ class MainActivity : AppCompatActivity() {
         // переход к окну с гороскопом
         fabNext.setOnClickListener {
             if (dateBirthday == null) {
-                showToast("Выберите свою дату рождения")
-            } else {
                 startHoroscope()
+                replaceActivity(HoroscopeActivity())
+            } else {
                 replaceActivity(HoroscopeActivity())
             }
         }
