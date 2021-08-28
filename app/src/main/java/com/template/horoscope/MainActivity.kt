@@ -25,15 +25,18 @@ class MainActivity : AppCompatActivity() {
             ).getString("BIRTHDAY", null)
         ).toString()
 
-        if (dateBirthday!=null){
+        if (dateBirthday != null) {
             replaceActivity(HoroscopeActivity())
         }
 
         // переход к окну с гороскопом
         fabNext.setOnClickListener {
-            if (user == null || user?.age!! <= 0) showToast("Выберите свою дату рождения")
-            else startHoroscope()
-            replaceActivity(HoroscopeActivity())
+            if (dateBirthday == null) {
+                showToast("Выберите свою дату рождения")
+            } else {
+                startHoroscope()
+                replaceActivity(HoroscopeActivity())
+            }
         }
 
         button.setOnClickListener {

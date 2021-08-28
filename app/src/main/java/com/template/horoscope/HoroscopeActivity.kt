@@ -90,12 +90,6 @@ class HoroscopeActivity : AppCompatActivity() {
                     }
                 }
             })
-
-
-
-
-
-
         }
     }
 
