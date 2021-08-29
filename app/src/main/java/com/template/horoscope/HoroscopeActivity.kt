@@ -46,7 +46,6 @@ class HoroscopeActivity : AppCompatActivity() {
                 .addHeader("User-Agent", System.getProperty("http.agent").toString())
                 .build()
 
-
             val client = OkHttpClient()
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
@@ -84,7 +83,7 @@ class HoroscopeActivity : AppCompatActivity() {
                         .filterNot { filtered.indexOf(it) > -1 }
 
                     runOnUiThread() {
-                        progressBar.visibility = View.INVISIBLE
+                        progressBar.visibility = View.GONE
 
                         newHoroscopeTV2.text = todayHoroscope
                     }
