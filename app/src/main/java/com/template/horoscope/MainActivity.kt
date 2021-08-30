@@ -17,25 +17,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        var dateBirthday = LocalDate.parse(
-            getSharedPreferences(
-                "PREFERENCE",
-                Context.MODE_PRIVATE
-            ).getString("BIRTHDAY", null)
-        ).toString()
-
-        if (dateBirthday != null) {
+        if (checkData() != "empty") {
             replaceActivity(HoroscopeActivity())
         }
 
         // переход к окну с гороскопом
         fabNext.setOnClickListener {
-            if (dateBirthday == null) {
-                startHoroscope()
+            if (checkData() != "empty") {
                 replaceActivity(HoroscopeActivity())
             } else {
-                replaceActivity(HoroscopeActivity())
+                showToast("Выберите свою дату рождения")
             }
         }
 
@@ -43,6 +34,12 @@ class MainActivity : AppCompatActivity() {
             startHoroscope()
             replaceActivity(HoroscopeActivity())
         }
+    }
+
+    private fun checkData(): String? {
+        var zodiacSign = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+            .getString("ZODIAC", "empty")
+        return zodiacSign
     }
 
     fun startHoroscope() {

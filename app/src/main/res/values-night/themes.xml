@@ -16,4 +16,10 @@
     <style name="DatePicker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:textSize">30sp</item>
     </style>
+
+    <style name="Container" parent="Theme.Horoscope">
+      <item name="backgroundTint">@color/surface</item>
+    </style>
+
+
 </resources>
