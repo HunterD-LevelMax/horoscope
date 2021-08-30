@@ -14,7 +14,7 @@ import kotlin.concurrent.thread
 
 class HoroscopeActivity : AppCompatActivity() {
     lateinit var user: User
-    lateinit var todayHoroscope: String
+    lateinit var moonHoroscope: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,10 +44,6 @@ class HoroscopeActivity : AppCompatActivity() {
                 .url(url)
                 .addHeader("User-Agent", System.getProperty("http.agent").toString())
                 .build()
-            val requestAll = Request.Builder()
-                .url(urlAll)
-                .addHeader("User-Agent", System.getProperty("http.agent").toString())
-                .build()
 
             val client = OkHttpClient()
             client.newCall(request).enqueue(object : Callback {
@@ -60,15 +56,20 @@ class HoroscopeActivity : AppCompatActivity() {
 
                     var filtered = "<p>h12/"
 
-                    todayHoroscope = (JSONObject(json).get("text")).toString()
+                    moonHoroscope = (JSONObject(json).get("text")).toString()
                         .filterNot { filtered.indexOf(it) > -1 }
 
                     runOnUiThread() {
                         progressBar.visibility = View.INVISIBLE
-                        newHoroscopeTV.text = todayHoroscope
+                        newHoroscopeTV.text = moonHoroscope
                     }
                 }
             })
+
+            val requestAll = Request.Builder()
+                .url(urlAll)
+                .addHeader("User-Agent", System.getProperty("http.agent").toString())
+                .build()
 
             val clientAll = OkHttpClient()
             clientAll.newCall(requestAll).enqueue(object : Callback {
@@ -81,12 +82,12 @@ class HoroscopeActivity : AppCompatActivity() {
 
                     var filtered = "</a><p><ahref=\\\"/moon/calendar/\\\">"
 
-                    todayHoroscope = (JSONObject(json).get("text")).toString()
+                    moonHoroscope = (JSONObject(json).get("text")).toString()
                         .filterNot { filtered.indexOf(it) > -1 }
 
                     runOnUiThread() {
                         progressBar2.visibility = View.GONE
-                        newHoroscopeTV2.text = todayHoroscope
+                        newHoroscopeTV2.text = moonHoroscope
                     }
                 }
             })
@@ -136,7 +137,6 @@ class HoroscopeActivity : AppCompatActivity() {
 
         var age = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
             .getString("AGE", null)?.toInt()!!
-
 
         user = User(dateBirthday, zodiacSign, nameElement, namePlanet, nameYear, age)
     }

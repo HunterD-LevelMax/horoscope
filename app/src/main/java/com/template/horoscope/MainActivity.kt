@@ -5,7 +5,6 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import java.time.LocalDate
 
 import java.time.format.DateTimeFormatter
 

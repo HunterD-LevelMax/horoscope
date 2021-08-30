@@ -1,7 +1,5 @@
 package com.template.horoscope
 
-import android.app.Activity
-import android.widget.Toast
 import java.time.LocalDate
 import java.time.Period
 
@@ -99,7 +97,6 @@ fun chineseZodiac(year: Int): String {
 fun getBirthdayDate(year: Int, month: Int, day: Int): LocalDate {
     return LocalDate.of(year, month, day)
 }
-
 
 fun getAge(birthday: LocalDate): Int {
     return Period.between(
