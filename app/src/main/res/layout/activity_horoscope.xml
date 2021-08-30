@@ -32,11 +32,11 @@
 
                 <ImageView
                     android:id="@+id/zodiac_icon"
-                    android:layout_width="238dp"
-                    android:layout_height="221dp"
+                    android:layout_width="203dp"
+                    android:layout_height="189dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:background="@color/transparent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:text="Козерог"
                     android:textAlignment="center"
                     android:textColor="@color/white"
@@ -62,7 +62,6 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:orientation="vertical"
-                    android:padding="5dp"
                     app:layout_constraintStart_toEndOf="@+id/zodiac_icon"
                     app:layout_constraintTop_toBottomOf="@+id/zodiacTVH">
 
@@ -70,7 +69,6 @@
                         android:id="@+id/linearLayout4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:orientation="horizontal"
                         android:padding="5dp">
@@ -96,7 +94,6 @@
                         android:id="@+id/linearLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:orientation="horizontal"
                         android:padding="5dp">
@@ -123,7 +120,6 @@
                         android:id="@+id/linearLayout2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:orientation="horizontal"
                         android:padding="5dp">
@@ -148,7 +144,6 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:orientation="horizontal"
                         android:padding="5dp">
@@ -174,7 +169,6 @@
                         android:id="@+id/linearLayout3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:orientation="horizontal"
                         android:padding="5dp">
@@ -285,9 +279,9 @@
 
                 <ProgressBar
                     android:id="@+id/progressBar"
-                    style="@android:style/Widget.Material.Light.ProgressBar.Small"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    style="@android:style/Widget.Holo.ProgressBar.Large"
+                    android:layout_width="92dp"
+                    android:layout_height="74dp"
                     android:layout_gravity="center"
                     android:backgroundTintMode="add"
                     android:visibility="visible"
