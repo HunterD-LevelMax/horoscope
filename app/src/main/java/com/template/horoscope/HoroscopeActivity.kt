@@ -21,8 +21,10 @@ class HoroscopeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_horoscope)
         loadData()
         showToast("Загружены данные о пользователе с локального хранилища")
+
         dateTVH.text =
             user.birthdayDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy")).toString()
+
         ageTVH.text = "Мне " + user.age.toString()
         zodiacTVH.text = user.zodiacSign
         nameYearTVH.text = user.nameYear
@@ -34,7 +36,8 @@ class HoroscopeActivity : AppCompatActivity() {
 
     private fun requestServer() {
         thread {
-            val url = "https://horoscopes.rambler.ru/api/front/v1/horoscope/today/${getZodiacEn(user.zodiacSign)}/"
+            val url =
+                "https://horoscopes.rambler.ru/api/front/v1/horoscope/today/${getZodiacEn(user.zodiacSign)}/"
             val urlAll = "https://horoscopes.rambler.ru/api/front/v1/horoscope/today"
 
             val request = Request.Builder()
@@ -62,7 +65,6 @@ class HoroscopeActivity : AppCompatActivity() {
 
                     runOnUiThread() {
                         progressBar.visibility = View.INVISIBLE
-
                         newHoroscopeTV.text = todayHoroscope
                     }
                 }
@@ -83,8 +85,7 @@ class HoroscopeActivity : AppCompatActivity() {
                         .filterNot { filtered.indexOf(it) > -1 }
 
                     runOnUiThread() {
-                        progressBar.visibility = View.GONE
-
+                        progressBar2.visibility = View.GONE
                         newHoroscopeTV2.text = todayHoroscope
                     }
                 }
