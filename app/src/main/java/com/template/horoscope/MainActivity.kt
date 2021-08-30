@@ -60,9 +60,9 @@ class MainActivity : AppCompatActivity() {
         user = User(
             getBirthdayDate(year, month, day),
             getZodiac(day, month),
-            chineseZodiac(year),
             getElement(getZodiac(day, month)),
             getPlanet(getZodiac(day, month)),
+            chineseZodiac(year),
             getAge(getBirthdayDate(year, month, day))
         )
         saveData(user!!)
@@ -74,11 +74,11 @@ class MainActivity : AppCompatActivity() {
             getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         editor.apply {
+            putString("BIRTHDAY", user?.birthdayDate.toString())
             putString("ZODIAC", user?.zodiacSign)
             putString("ELEMENT", user?.element)
             putString("PLANET", user?.planet)
             putString("NAME_YEAR", user?.nameYear)
-            putString("BIRTHDAY", user?.birthdayDate.toString())
             putString("AGE", user?.age.toString())
         }.apply()
     }

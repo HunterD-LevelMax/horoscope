@@ -25,8 +25,8 @@ class HoroscopeActivity : AppCompatActivity() {
         dateTVH.text =
             user.birthdayDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy")).toString()
 
-        ageTVH.text = "Мне " + user.age.toString()
-        zodiacTVH.text = user.zodiacSign
+        ageTVH.text = "Мне ${user.age}"
+        zodiacTVH.text = "Я " + user.zodiacSign
         nameYearTVH.text = user.nameYear
         nameElementTVH.text = user.element
         namePlanetTVH.text = user.planet
@@ -111,7 +111,6 @@ class HoroscopeActivity : AppCompatActivity() {
     }
 
     fun loadData() {
-
         var dateBirthday = LocalDate.parse(
             getSharedPreferences(
                 "PREFERENCE",
@@ -123,13 +122,6 @@ class HoroscopeActivity : AppCompatActivity() {
             .getString("ZODIAC", null)
             .toString()
 
-        var nameYear = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
-            .getString("NAME_YEAR", null)
-            .toString()
-
-        var age = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
-            .getString("AGE", null)?.toInt()!!
-
         var nameElement = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
             .getString("ELEMENT", null)
             .toString()
@@ -137,6 +129,14 @@ class HoroscopeActivity : AppCompatActivity() {
         var namePlanet = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
             .getString("PLANET", null)
             .toString()
+
+        var nameYear = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+            .getString("NAME_YEAR", null)
+            .toString()
+
+        var age = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+            .getString("AGE", null)?.toInt()!!
+
 
         user = User(dateBirthday, zodiacSign, nameElement, namePlanet, nameYear, age)
     }

@@ -18,7 +18,7 @@
     </style>
 
     <style name="Container" parent="Theme.Horoscope">
-      <item name="backgroundTint">@color/surface</item>
+      <item name="backgroundTint">@color/blue_grey</item>
     </style>
 
 

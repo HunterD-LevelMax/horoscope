@@ -17,14 +17,14 @@
             android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
+                android:id="@+id/aboutMeCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/rectangle"
-                android:backgroundTint="@color/blue_grey"
+                android:backgroundTint="@color/surface"
                 android:paddingBottom="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -59,10 +59,10 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
                     android:orientation="vertical"
-                    app:layout_constraintStart_toEndOf="@+id/zodiac_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/zodiacTVH">
 
                     <LinearLayout
@@ -78,16 +78,17 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
-                            app:srcCompat="@drawable/ic_baseline_eco" />
+                            app:srcCompat="@drawable/ic_baseline_calendar" />
 
                         <TextView
-                            android:id="@+id/nameElementTVH"
+                            android:id="@+id/nameYearTVH"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Элемент"
+                            android:text="Год"
                             android:textAlignment="center"
                             android:textColor="@color/white"
                             android:textSize="18sp" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -178,37 +179,36 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
-                            app:srcCompat="@drawable/ic_baseline_emoji_nature" />
+                            app:srcCompat="@drawable/ic_baseline_eco" />
 
                         <TextView
-                            android:id="@+id/nameYearTVH"
+                            android:id="@+id/nameElementTVH"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Год животного"
+                            android:text="Элемент"
                             android:textAlignment="center"
                             android:textColor="@color/white"
                             android:textSize="18sp" />
 
                     </LinearLayout>
+
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout2"
+                android:id="@+id/horoscopeForMeCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="500dp"
                 android:background="@drawable/rectangle"
                 android:backgroundTint="@color/blue_grey"
                 android:forceDarkAllowed="false"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+                app:layout_constraintTop_toBottomOf="@+id/aboutMeCard">
 
                 <TextView
                     android:id="@+id/newHoroscopeTV3"
@@ -258,19 +258,21 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout3"
+                android:id="@+id/horoscopeMoonCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/rectangle"
-                android:backgroundTint="@color/blue_grey"
+                android:backgroundTint="@color/base"
                 android:forceDarkAllowed="false"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+                app:layout_constraintTop_toBottomOf="@+id/horoscopeForMeCard">
 
                 <TextView
                     android:id="@+id/newHoroscopeTV2"
