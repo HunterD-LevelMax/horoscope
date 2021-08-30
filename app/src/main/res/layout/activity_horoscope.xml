@@ -36,10 +36,10 @@
                     android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:background="@color/transparent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zodiacTVH"
                     app:srcCompat="@drawable/capricorn" />
 
                 <TextView
