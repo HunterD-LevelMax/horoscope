@@ -20,7 +20,6 @@ class HoroscopeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_horoscope)
         loadData()
-        showToast("Загружены данные о пользователе с локального хранилища")
 
         dateTVH.text =
             user.birthdayDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy")).toString()
@@ -35,11 +34,11 @@ class HoroscopeActivity : AppCompatActivity() {
     }
 
     private fun requestServer() {
-        thread {
-            val url =
-                "https://horoscopes.rambler.ru/api/front/v1/horoscope/today/${getZodiacEn(user.zodiacSign)}/"
-            val urlAll = "https://horoscopes.rambler.ru/api/front/v1/horoscope/today"
+        val url =
+            "https://horoscopes.rambler.ru/api/front/v1/horoscope/today/${getZodiacEn(user.zodiacSign)}/"
+        val urlAll = "https://horoscopes.rambler.ru/api/front/v1/horoscope/today"
 
+        thread {
             val request = Request.Builder()
                 .url(url)
                 .addHeader("User-Agent", System.getProperty("http.agent").toString())
@@ -50,7 +49,6 @@ class HoroscopeActivity : AppCompatActivity() {
                 override fun onFailure(call: Call, e: IOException) {
                     showToast("Ошибка 404")
                 }
-
                 override fun onResponse(call: Call, response: Response) {
                     val json = response.body?.string()
 
@@ -65,7 +63,9 @@ class HoroscopeActivity : AppCompatActivity() {
                     }
                 }
             })
+        }
 
+        thread {
             val requestAll = Request.Builder()
                 .url(urlAll)
                 .addHeader("User-Agent", System.getProperty("http.agent").toString())
@@ -76,11 +76,10 @@ class HoroscopeActivity : AppCompatActivity() {
                 override fun onFailure(call: Call, e: IOException) {
                     showToast("Ошибка 404")
                 }
-
                 override fun onResponse(call: Call, response: Response) {
                     val json = response.body?.string()
 
-                    var filtered = "</a><p><ahref=\\\"/moon/calendar/\\\">"
+                    var filtered = "</a>phref=\\\"mooncalendar\\\""
 
                     moonHoroscope = (JSONObject(json).get("text")).toString()
                         .filterNot { filtered.indexOf(it) > -1 }
@@ -139,6 +138,7 @@ class HoroscopeActivity : AppCompatActivity() {
             .getString("AGE", null)?.toInt()!!
 
         user = User(dateBirthday, zodiacSign, nameElement, namePlanet, nameYear, age)
+        showToast("Загружены данные о пользователе с локального хранилища")
     }
 
 }
