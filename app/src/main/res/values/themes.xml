@@ -17,6 +17,7 @@
 
     <style name="datePicker" parent="Theme.AppCompat">
         <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="card" parent="Theme.AppCompat">

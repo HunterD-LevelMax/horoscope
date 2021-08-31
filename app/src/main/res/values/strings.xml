@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Horoscope</string>
     <string name="aquarius">Водолей</string>
+    <string name="aries">Овен</string>
 </resources>
