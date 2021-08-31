@@ -18,13 +18,14 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/aboutMeCard"
+                style="@style/card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/rectangle"
-                android:backgroundTint="@color/surface"
+                android:forceDarkAllowed="false"
                 android:paddingBottom="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -198,13 +199,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/horoscopeForMeCard"
+                style="@style/card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/rectangle"
-                android:backgroundTint="@color/blue_grey"
                 android:forceDarkAllowed="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -235,6 +236,7 @@
                     android:fontFamily="sans-serif-light"
                     android:text="Мой гороскоп"
                     android:textColor="@color/white"
+                    android:textIsSelectable="true"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -259,6 +261,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/horoscopeMoonCard"
+                style="@style/card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -266,11 +269,9 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/rectangle"
-                android:backgroundTint="@color/base"
                 android:forceDarkAllowed="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/horoscopeForMeCard">
 
@@ -285,6 +286,7 @@
                     android:fontFamily="sans-serif-light"
                     android:text="Общий"
                     android:textColor="@color/white"
+                    android:textIsSelectable="true"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

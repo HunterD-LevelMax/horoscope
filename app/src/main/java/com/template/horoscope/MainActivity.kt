@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
         saveData(user!!)
     }
 
-
     private fun saveData(user: User) {
         val sharedPreferences: SharedPreferences =
             getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)

@@ -79,7 +79,7 @@
 
     <DatePicker
         android:id="@+id/datePicker"
-        style="@style/DatePicker"
+        style="@style/datePicker"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -87,11 +87,7 @@
         android:layout_marginEnd="16dp"
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
-        android:dayOfWeekTextAppearance="@style/TextAppearance.AppCompat.Large"
         android:headerBackground="@color/blue"
-        android:headerDayOfMonthTextAppearance="@style/TextAppearance.AppCompat.Large"
-        android:headerMonthTextAppearance="@style/TextAppearance.AppCompat.Large"
-        android:headerYearTextAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

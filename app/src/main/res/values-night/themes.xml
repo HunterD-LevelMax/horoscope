@@ -13,13 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/surface</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="DatePicker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+    <style name="datePicker" parent="Theme.AppCompat">
         <item name="android:textSize">30sp</item>
     </style>
 
-    <style name="Container" parent="Theme.Horoscope">
-      <item name="backgroundTint">@color/blue_grey</item>
+    <style name="card" parent="Theme.AppCompat">
+        <item name="android:backgroundTint">@color/surface</item>
     </style>
-
 
 </resources>
