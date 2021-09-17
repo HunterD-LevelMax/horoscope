@@ -25,7 +25,7 @@ class HoroscopeActivity : AppCompatActivity() {
             user.birthdayDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy")).toString()
 
         ageTVH.text = "Мне ${user.age}"
-        zodiacTVH.text = "Я " + user.zodiacSign
+        zodiacTVH.text = "Мой знак зодиака " + user.zodiacSign
         nameYearTVH.text = user.nameYear
         nameElementTVH.text = user.element
         namePlanetTVH.text = user.planet
