@@ -1,1 +1,1 @@
-Онлайн гороскоп
+Simple online horoscope
